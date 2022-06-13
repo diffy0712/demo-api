@@ -1,0 +1,14 @@
+services:
+  db:
+    image: postgres:15beta1-bullseye
+    restart: on-failure
+    environment:
+      POSTGRES_PASSWORD: root
+    ports:
+      - 5432:5432
+  
+  adminer:
+    image: adminer
+    restart: on-failure
+    ports:
+      - 8080:8080
