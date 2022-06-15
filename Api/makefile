@@ -1,4 +1,9 @@
 ## dotnet commands
+
+.PHONY: run
+run: ## Run dotnet
+	dotnet run
+
 .PHONY: mig
 mig: ## Migrate entity framework database
 	dotnet ef database update
