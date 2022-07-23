@@ -27,3 +27,6 @@ In the `Api` folder there is a makefile to help start the dotnet server.
 $ make run
 ```
 
+### Links
+- Adminer `http://localhost:8080/`
+- Swagger documentation is at `http://localhost:7263/swagger/index.html`
