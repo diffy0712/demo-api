@@ -15,8 +15,10 @@ public class GetProductsEndpoint: Endpoint<EmptyRequest, GetProductsEndpointResp
     public override void Configure()
     {
         AllowAnonymous();
+        DontAutoTag();
         Get("/products");
         Description(b => b
+            .WithTags("Manage Products")
             .Produces<GetProductsEndpointResponse>(200, "application/json")
             .Produces<ErrorResponse>(400, "application/json+problem"));
         Summary(s => {

@@ -14,8 +14,10 @@ public class DeleteProductEndpoint: Endpoint<DeleteProductEndpointRequest, Empty
     public override void Configure()
     {
         AllowAnonymous();
+        DontAutoTag();
         Delete("/products/{Id}");
         Description(b => b
+            .WithTags("Manage Products")
             .Produces<EmptyResponse>(200, "application/json")
             .Produces<ErrorResponse>(400, "application/json+problem"));
         Summary(s => {
