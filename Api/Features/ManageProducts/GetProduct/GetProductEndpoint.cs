@@ -2,7 +2,7 @@ using Api.Repositories;
 
 namespace Api.Features.ManageProducts.GetProduct;
 
-public class GetProductEndpoint: Endpoint<GetProductEndpointRequest, GetProductEndpointResponse>
+public class GetProductEndpoint: Endpoint<GetProductEndpointRequest, GetProductEndpointResponse, GetProductEndpointMapper>
 {
     private readonly IProductRepository _productRepository;
 
@@ -39,19 +39,7 @@ public class GetProductEndpoint: Endpoint<GetProductEndpointRequest, GetProductE
             return;
         }
 
-        var response = new GetProductEndpointResponse()
-        {
-            Id = product.Id,
-            Content = product.Content
-        };
-        product.Tags.ForEach(tag =>
-        {
-            response.Tags.Add(new GetProductTagEndpointResponse()
-            {
-                id = tag.Id,
-                Content = tag.Content
-            });
-        });
+        var response = Map.FromEntity(product);
 
         await SendAsync(response, 200, c);
     }

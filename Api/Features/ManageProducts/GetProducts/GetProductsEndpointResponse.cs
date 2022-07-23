@@ -4,5 +4,5 @@ namespace Api.Features.ManageProducts.GetProducts;
 
 public class GetProductsEndpointResponse
 {
-    public List<GetProductEndpointResponse> products { get; set; }
+    public IEnumerable<GetProductEndpointResponse> products { get; set; }
 }

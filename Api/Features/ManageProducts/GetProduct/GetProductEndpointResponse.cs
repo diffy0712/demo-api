@@ -6,11 +6,11 @@ public class GetProductEndpointResponse
     
     public string Content { get; set; }
 
-    public List<GetProductTagEndpointResponse> Tags { get; set; } = new();
+    public IEnumerable<GetProductTagEndpointResponse> Tags { get; set; } = new List<GetProductTagEndpointResponse>();
 }
 
 public class GetProductTagEndpointResponse
 {
-    public Guid id { get; set; }
+    public Guid Id { get; set; }
     public string Content { get; set; }
 }

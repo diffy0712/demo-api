@@ -1,9 +1,8 @@
-using Api.Entities;
 using Api.Repositories;
 
 namespace Api.Features.ManageProducts.CreateProduct;
 
-public class CreateProductEndpoint : Endpoint<CreateProductEndpointRequest>
+public class CreateProductEndpoint : Endpoint<CreateProductEndpointRequest, EmptyResponse, CreateProductEndpointMapper>
 {
     private readonly IProductRepository _productRepository;
 
@@ -26,11 +25,7 @@ public class CreateProductEndpoint : Endpoint<CreateProductEndpointRequest>
     
     public override async Task HandleAsync(CreateProductEndpointRequest r, CancellationToken c)
     {
-        var product = new Product()
-        {
-            Id = new Guid(r.Id),
-            Content = r.Content
-        };
+        var product = Map.ToEntity(r);
         
         await _productRepository.CreateProductAsync(product);
         
