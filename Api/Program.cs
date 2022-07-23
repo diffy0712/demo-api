@@ -19,6 +19,9 @@ builder.Services.AddCors(options =>
 builder.Services.AddSwaggerDoc(settings =>
 {
     settings.Title = "DemoApi RESTful API";
+    settings.Description = "<a href='https://github.com/diffy0712/demo-api' target='_blank'>Backend repo</a> - " +
+                           "<a href='https://github.com/diffy0712/clean-spa-architecture' target='_blank'>Frontend repo</a> <br/>" +
+                           "<a href='https://www.guidgenerator.com/online-guid-generator.aspx' target='_blank'>Guid generator</a>";
     settings.Version = "v1";
 });
 
