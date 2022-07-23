@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Api.Entities;
 
-public class Device
+public class Product
 {
     [Key]
     public Guid Id { get; set; }

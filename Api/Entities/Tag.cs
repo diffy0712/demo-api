@@ -10,5 +10,5 @@ public class Tag
     [Required]
     public string Content { get; init; }
 
-    public List<Device> Notes { get; set; } = new List<Device>();
+    public List<Product> Notes { get; set; } = new List<Product>();
 }

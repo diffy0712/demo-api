@@ -1,6 +1,6 @@
 namespace Api.Features.ManageProducts.DeleteProduct;
 
-public class DeleteDeviceEndpointRequest
+public class DeleteProductEndpointRequest
 {
     public string? Id { get; set; }
 }

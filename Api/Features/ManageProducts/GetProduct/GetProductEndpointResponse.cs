@@ -1,15 +1,15 @@
 namespace Api.Features.ManageProducts.GetProduct;
 
-public class GetDeviceEndpointResponse
+public class GetProductEndpointResponse
 {
     public Guid Id { get; set; }
     
     public string Content { get; set; }
 
-    public List<GetDeviceTagEndpointResponse> Tags { get; set; } = new();
+    public List<GetProductTagEndpointResponse> Tags { get; set; } = new();
 }
 
-public class GetDeviceTagEndpointResponse
+public class GetProductTagEndpointResponse
 {
     public Guid id { get; set; }
     public string Content { get; set; }

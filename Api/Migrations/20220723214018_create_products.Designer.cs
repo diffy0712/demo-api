@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Api.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220613214612_initial-mig")]
-    partial class initialmig
+    [Migration("20220723214018_create_products")]
+    partial class create_products
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,7 +25,7 @@ namespace Api.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("Api.Entities.Device", b =>
+            modelBuilder.Entity("Api.Entities.Product", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -37,7 +37,7 @@ namespace Api.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Devices");
+                    b.ToTable("Products");
                 });
 
             modelBuilder.Entity("Api.Entities.Tag", b =>
@@ -55,7 +55,7 @@ namespace Api.Migrations
                     b.ToTable("Tag");
                 });
 
-            modelBuilder.Entity("DeviceTag", b =>
+            modelBuilder.Entity("ProductTag", b =>
                 {
                     b.Property<Guid>("NotesId")
                         .HasColumnType("uuid");
@@ -67,12 +67,12 @@ namespace Api.Migrations
 
                     b.HasIndex("TagsId");
 
-                    b.ToTable("DeviceTag");
+                    b.ToTable("ProductTag");
                 });
 
-            modelBuilder.Entity("DeviceTag", b =>
+            modelBuilder.Entity("ProductTag", b =>
                 {
-                    b.HasOne("Api.Entities.Device", null)
+                    b.HasOne("Api.Entities.Product", null)
                         .WithMany()
                         .HasForeignKey("NotesId")
                         .OnDelete(DeleteBehavior.Cascade)

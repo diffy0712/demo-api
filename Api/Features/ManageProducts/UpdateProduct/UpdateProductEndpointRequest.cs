@@ -1,6 +1,6 @@
 namespace Api.Features.ManageProducts.UpdateProduct;
 
-public class UpdateDeviceEndpointRequest
+public class UpdateProductEndpointRequest
 {
     public string? Id { get; set; }
     public string Content { get; set; }

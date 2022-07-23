@@ -23,7 +23,7 @@ builder.Services.AddSwaggerDoc(settings =>
 });
 
 builder.Services.AddDbContext<DataContext>();
-builder.Services.AddScoped<IDeviceRepository, DeviceRepository>();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
 var app = builder.Build();
 

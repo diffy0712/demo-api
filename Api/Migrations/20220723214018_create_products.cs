@@ -6,13 +6,13 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Api.Migrations
 {
     /// <inheritdoc />
-    public partial class initialmig : Migration
+    public partial class create_products : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Devices",
+                name: "Products",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -20,7 +20,7 @@ namespace Api.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Devices", x => x.Id);
+                    table.PrimaryKey("PK_Products", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -36,7 +36,7 @@ namespace Api.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "DeviceTag",
+                name: "ProductTag",
                 columns: table => new
                 {
                     NotesId = table.Column<Guid>(type: "uuid", nullable: false),
@@ -44,15 +44,15 @@ namespace Api.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_DeviceTag", x => new { x.NotesId, x.TagsId });
+                    table.PrimaryKey("PK_ProductTag", x => new { x.NotesId, x.TagsId });
                     table.ForeignKey(
-                        name: "FK_DeviceTag_Devices_NotesId",
+                        name: "FK_ProductTag_Products_NotesId",
                         column: x => x.NotesId,
-                        principalTable: "Devices",
+                        principalTable: "Products",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_DeviceTag_Tag_TagsId",
+                        name: "FK_ProductTag_Tag_TagsId",
                         column: x => x.TagsId,
                         principalTable: "Tag",
                         principalColumn: "Id",
@@ -60,8 +60,8 @@ namespace Api.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_DeviceTag_TagsId",
-                table: "DeviceTag",
+                name: "IX_ProductTag_TagsId",
+                table: "ProductTag",
                 column: "TagsId");
         }
 
@@ -69,10 +69,10 @@ namespace Api.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "DeviceTag");
+                name: "ProductTag");
 
             migrationBuilder.DropTable(
-                name: "Devices");
+                name: "Products");
 
             migrationBuilder.DropTable(
                 name: "Tag");

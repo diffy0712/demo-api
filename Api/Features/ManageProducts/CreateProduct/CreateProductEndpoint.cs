@@ -3,36 +3,36 @@ using Api.Repositories;
 
 namespace Api.Features.ManageProducts.CreateProduct;
 
-public class CreateDeviceEndpoint : Endpoint<CreateDeviceEndpointRequest>
+public class CreateProductEndpoint : Endpoint<CreateProductEndpointRequest>
 {
-    private readonly IDeviceRepository _deviceRepository;
+    private readonly IProductRepository _productRepository;
 
-    public CreateDeviceEndpoint(IDeviceRepository deviceRepository)
+    public CreateProductEndpoint(IProductRepository productRepository)
     {
-        _deviceRepository = deviceRepository;
+        _productRepository = productRepository;
     }
     
     public override void Configure()
     {
         AllowAnonymous();
-        Post("/devices");
+        Post("/products");
         Description(b => b
             .Produces<EmptyResponse>(201, "application/json")
             .Produces<ErrorResponse>(400, "application/json+problem"));
         Summary(s => {
-            s.Summary = "Create a new device";
+            s.Summary = "Create a new product";
         }); 
     }
     
-    public override async Task HandleAsync(CreateDeviceEndpointRequest r, CancellationToken c)
+    public override async Task HandleAsync(CreateProductEndpointRequest r, CancellationToken c)
     {
-        var device = new Device()
+        var product = new Product()
         {
             Id = new Guid(r.Id),
             Content = r.Content
         };
         
-        await _deviceRepository.CreateDeviceAsync(device);
+        await _productRepository.CreateProductAsync(product);
         
         await SendAsync(new EmptyResponse(), 201, c);
     }
