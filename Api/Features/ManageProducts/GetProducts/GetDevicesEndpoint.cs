@@ -1,7 +1,7 @@
-using Api.Contracts;
+using Api.Features.ManageProducts.GetProduct;
 using Api.Repositories;
 
-namespace Api.Endpoints;
+namespace Api.Features.ManageProducts.GetProducts;
 
 public class GetDevicesEndpoint: Endpoint<EmptyRequest, GetDevicesEndpointResponse>
 {

@@ -1,8 +1,7 @@
-using Api.Contracts;
 using Api.Entities;
 using Api.Repositories;
 
-namespace Api.Endpoints;
+namespace Api.Features.ManageProducts.CreateProduct;
 
 public class CreateDeviceEndpoint : Endpoint<CreateDeviceEndpointRequest>
 {

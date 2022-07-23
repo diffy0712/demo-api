@@ -1,4 +1,4 @@
-namespace Api.Contracts;
+namespace Api.Features.ManageProducts.GetProduct;
 
 public class GetDeviceEndpointResponse
 {

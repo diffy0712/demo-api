@@ -1,7 +1,6 @@
-using Api.Contracts;
 using Api.Repositories;
 
-namespace Api.Endpoints;
+namespace Api.Features.ManageProducts.DeleteProduct;
 
 public class DeleteDeviceEndpoint: Endpoint<DeleteDeviceEndpointRequest, EmptyResponse>
 {
